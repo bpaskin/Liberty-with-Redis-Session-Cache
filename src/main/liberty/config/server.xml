@@ -46,7 +46,7 @@
     <!-- Application configuration -->
     <webApplication id="redis-cache" 
                     location="redis-cache.war" 
-                    contextRoot="/redis-cache">
+                    contextRoot="/redistester">
         <classloader commonLibraryRef="redissonLib"/>
     </webApplication>
 
