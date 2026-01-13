@@ -1,0 +1,25 @@
+singleServerConfig:
+  # The address of the Redis/Valkey server. Use 'redis://' for non-SSL or 'rediss://' for SSL connections.
+  address: "redis://127.0.0.1:6379" 
+  # Optional: Password for the Redis/Valkey server. Can also use environment variables like "${REDIS_PASSWORD}".
+  # Use "{aes}..." prefix for encrypted passwords if a secretKey is provided.
+  password: null
+  # Number of connections in the subscription connection pool.
+  subscriptionConnectionPoolSize: 50
+  # Minimum number of idle connections in the connection pool.
+  connectionMinimumIdleSize: 32
+  # Maximum number of connections in the connection pool.
+  connectionPoolSize: 64
+  # Redis database index to use (default is 0).
+  database: 0
+  # Connection timeout in milliseconds.
+  connectTimeout: 10000
+  # Timeout for Redis operations in milliseconds.
+  timeout: 3000
+  # Interval in milliseconds to monitor DNS changes for the address.
+  dnsMonitoringInterval: 5000 
+
+# Common settings outside of the specific server mode configuration
+codec: !<org.redisson.codec.JsonJacksonCodec> {} # Use Jackson for JSON serialization.
+threads: 0 # Number of threads used by Redisson for all operations. 0 means auto set to current_processors_amount.
+nettyThreads: 0 # Number of Netty threads. 0 means auto set to current_processors_amount.
